@@ -94,3 +94,6 @@ All $Q^2$ values are computed on the native response scale (V or Ohm·cm^2).
 ## Constants and knobs
 
 Each script keeps its own constants at the top (files are independent): $b$, $j_0$, $j$, $\alpha$, $R_{HF,0}$, and the `use_relative_residuals` flag.
+
+## How to cite
+Release v1.0.0 is available on Zenodo: https://doi.org/10.5281/zenodo.17104370
