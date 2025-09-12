@@ -37,9 +37,9 @@ x1  x2  x3  y1  y2  y3  y4  y5
 ```
 Families per $(y,x)$:
 - Linear: $$y = \beta_0 + \beta_1 x$$
-- Log10-$x$ ($x>0$): $$y = \beta_0 + \beta_1 \log_{10}(x)$$
-- Reciprocal-$x$ ($x\neq 0$): $$y = \beta_0 + \beta_1 x^{-1}$$
-- Exp-$y$ linear-$x$ ($y>0$): $$\ln y = \beta_0 + \beta_1 x \quad\Rightarrow\quad \hat y = e^{\beta_0+\beta_1 x}$$
+- Log10 $x$ ($x>0$): $$y = \beta_0 + \beta_1 \log_{10}(x)$$
+- Reciprocal $x$ ($x\neq 0$): $$y = \beta_0 + \beta_1 x^{-1}$$
+- Exp $y$ linear $x$ ($y>0$): $$\ln y = \beta_0 + \beta_1 x \quad\Rightarrow\quad \hat y = e^{\beta_0+\beta_1 x}$$
 
 **Output**: `result_screening_singleX_ols.xlsx` with sheets `all_fits`, `best_single_Q2`, `Q2_pivot`, `settings`.
 
@@ -48,9 +48,8 @@ Families per $(y,x)$:
 **Input**: `input_fit_kin_nls.xlsx` (two columns, no header): col1 $B_D$, col2 $\eta_{kin}$ (V).
 
 **Model**
-$$
-\eta_{kin}(B_D;\lambda)= b\,\log_{10}\left(\frac{j}{2j_0}\right) + b\,\log_{10}\left(1+\frac{1}{\lambda B_D}\right).
-$$
+
+$$\eta_{kin}(B_D;\lambda)= b\,\log_{10}\left(\frac{j}{2j_0}\right) + b\,\log_{10}\left(1+\frac{1}{\lambda B_D}\right)$$
 
 **Output**: `result_fit_kin_nls.xlsx` with sheets `params`, `data_fit`, `metrics`, `settings`.
 
@@ -59,15 +58,13 @@ $$
 **Input**: `input_fit_rhf_ols.xlsx` (two columns, no header): col1 $B_D$, col2 $\eta_{RHF}$ (V). Internally $R_{HF}=\eta_{RHF}/j$.
 
 **Model**
-$$
-R_{HF}(B_D)=a+\frac{b}{B_D}, \qquad \lambda_{RHF}=\frac{a-R_{HF,0}}{b}.
-$$
+
+$$R_{HF}(B_D)=a+\frac{b}{B_D}, \qquad \lambda_{RHF}=\frac{a-R_{HF,0}}{b}$$
 
 **Delta-method (variance of $\lambda_{RHF}$)**
-$$
-\nabla\lambda = \begin{bmatrix} 1/b \\ -\lambda/b \end{bmatrix}, \qquad
-\operatorname{Var}(\hat\lambda) \approx (\nabla\lambda)^{\top}\,\widehat{\operatorname{Cov}}(a,b)\,(\nabla\lambda).
-$$
+
+$$\nabla\lambda = \begin{bmatrix} 1/b \\ -\lambda/b \end{bmatrix}, \qquad$$
+$$\{Var}(\hat\lambda) \approx (\nabla\lambda)^{\top}\widehat{\{Cov}}(a,b)(\nabla\lambda)$$
 
 **Output**: `result_fit_rhf_ols.xlsx` with sheets `params`, `data_fit`, `metrics`.
 
@@ -76,9 +73,8 @@ $$
 **Input**: `input_fit_rcl_nls.xlsx` (two columns, no header): col1 $B_D$, col2 $\eta_{RCL}$ (V).
 
 **Model**
-$$
-\eta_{RCL}(B_D;\lambda,R_s)= \frac{b}{\alpha}\,\log_{10}\left( 1 + \left[\frac{j\,\ln 10}{2b}\left(\frac{R_s}{2}\left(1+\frac{1}{B_D\lambda}\right)\right)\right]^{\alpha} \right).
-$$
+
+$$\eta_{RCL}(B_D;\lambda,R_s)= \frac{b}{\alpha}\,\log_{10}\left( 1 + \left[\frac{j\,\ln 10}{2b}\left(\frac{R_s}{2}\left(1+\frac{1}{B_D\lambda}\right)\right)\right]^{\alpha} \right)$$
 
 **Output**: `result_fit_rcl_nls.xlsx` with sheets `params`, `data_fit`, `metrics`, `settings`.
 
@@ -91,7 +87,7 @@ R^2 = 1 - \frac{\sum_i (y_i - \hat y_i)^2}{\sum_i (y_i - \bar y)^2}, \qquad
 Q^2 = 1 - \frac{\sum_i (y_i - \hat y_{(-i)})^2}{\sum_i (y_i - \bar y)^2}.
 $$
 
-All $Q^2$ values are computed on the native response scale (V or Ohm·cm$^2$).
+All $Q^2$ values are computed on the native response scale (V or Ohm·cm^2).
 
 ---
 
