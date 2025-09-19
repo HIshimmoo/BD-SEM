@@ -6,7 +6,7 @@ Small, single‑purpose Python scripts for component‑wise **semi‑empirical**
 - Metrics: in‑sample $R^2$ and predictive $Q^2$ (leave‑one‑out refitting).
 - Each script reads **one** Excel input and writes **one** Excel output (no figures).
 
-## One‑$\lambda$ benchmark (context)
+## One $\lambda$ benchmark (context)
 
 We adopt a single effective transport length $\lambda$ (default $0.0105\ \mathrm{mm}=10.05\ \mu\mathrm{m}$) derived from active‑fraction arguments: $f(B_D;\lambda)=1-e^{-\lambda B_D}$ with $B_D$ in $\mathrm{mm}^{-1}$ and $\lambda$ in $\mathrm{mm}$. For model closure we use the approximation $\dfrac{1}{f}\approx\dfrac{\lambda B_D+2}{2\lambda B_D}=\dfrac12+\dfrac{1}{\lambda B_D}$, corresponding to inward‑only activation.
 
