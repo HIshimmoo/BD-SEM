@@ -16,7 +16,7 @@ Let $B_D$ be in $\mathrm{mm}^{-1}$ and $\lambda$ in $\mathrm{mm}$.
 
 ### Kinetics (fit $b,\ j_0$)
 $\eta_{\mathrm{kin}}(B_D; b, j_0)=b\,\log_{10}\left(\dfrac{j}{j_0}\right)+b\,\log_{10}\left(\dfrac12+\dfrac{1}{\lambda B_D}\right)$.  
-**Fitting bounds:** $0.10<b<0.15$ (V/dec), $5\times10^{-5}<j_0<5\times10^{-4}$ (A cm$^{-2}$).
+**Fitting bounds:** $0.10<b<0.15$ (V/dec), $5\times10^{-5}<j_0<5\times10^{-4}$ (A cm $^{-2}$).
 
 ### High‑frequency ohmic (fit $R_{\mathrm{HF},0},\ R_{\mathrm{HF},s}$)
 Work on $R_{\mathrm{HF}}=\eta_{\mathrm{RHF}}/j$. With fixed $\lambda$:  
@@ -28,7 +28,7 @@ $$\eta_{\mathrm{RCL}}(B_D; R_{\mathrm{CL},s}) = \frac{b}{\alpha}\,\log_{10}（\{
 ### Residual term (fit $\eta_{\mathrm{con}},\ k_\theta$; use $b$ from kinetics)
 To keep dimensions consistent with $B_D$ in $\mathrm{mm}^{-1}$, we use $j=4/100\ \mathrm{A\,mm^{-2}}$ (i.e., $4\ \mathrm{A\,cm^{-2}}=0.04\ \mathrm{A\,mm^{-2}}$), making $k_\theta$ naturally in $\mathrm{mm\,A^{-1}}$:  
 $\eta_{\mathrm{res}}(B_D;\eta_{\mathrm{con}},k_\theta)=\eta_{\mathrm{con}}+b\,\log_{10}\left(\dfrac{B_D}{B_D-j\,k_\theta}\right)$, with $B_D\,[\mathrm{mm}^{-1}]$, $j\,[\mathrm{A\,mm^{-2}}]$, $k_\theta\,[\mathrm{mm/A}]$.  
-**Positivity constraint:** ensure $B_D-j\,k_\theta>0$ for all data using $0<k_\theta<(1-\varepsilon)\,\dfrac{\min_i B_{D,i}}{j}$ with $\varepsilon\approx0.05$.
+**Positivity constraint:** ensure $B_D-j\,k_\theta>0$ for all data using $0<k_\theta<(1-\varepsilon)\,\dfrac{\min_i B_{D,i}}{j}$ with $\varepsilon\approx0.2$.
 
 ## Metrics
 
