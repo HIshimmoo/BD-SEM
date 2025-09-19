@@ -15,7 +15,7 @@ We adopt a single effective transport length $\lambda$ (default $0.0105\ \mathrm
 Let $B_D$ be in $\mathrm{mm}^{-1}$ and $\lambda$ in $\mathrm{mm}$.
 
 ### Kinetics (fit $b,\ j_0$)
-$\eta_{\mathrm{kin}}(B_D; b, j_0)=b\,\log_{10}\!\left(\dfrac{j}{j_0}\right)+b\,\log_{10}\!\left(\dfrac12+\dfrac{1}{\lambda B_D}\right)$.  
+$\eta_{\mathrm{kin}}(B_D; b, j_0)=b\,\log_{10}\left(\dfrac{j}{j_0}\right)+b\,\log_{10}\left(\dfrac12+\dfrac{1}{\lambda B_D}\right)$.  
 **Fitting bounds:** $0.10<b<0.15$ (V/dec), $5\times10^{-5}<j_0<5\times10^{-4}$ (A cm$^{-2}$).
 
 ### High‑frequency ohmic (fit $R_{\mathrm{HF},0},\ R_{\mathrm{HF},s}$)
@@ -23,11 +23,11 @@ Work on $R_{\mathrm{HF}}=\eta_{\mathrm{RHF}}/j$. With fixed $\lambda$:
 $R_{\mathrm{HF}}(B_D)=R_{\mathrm{HF},0}+R_{\mathrm{HF},s}\!\left(\dfrac12+\dfrac{1}{\lambda B_D}\right)=\underbrace{\big(R_{\mathrm{HF},0}+\tfrac12 R_{\mathrm{HF},s}\big)}_{a}+\underbrace{\left(\dfrac{R_{\mathrm{HF},s}}{\lambda}\right)}_{b}\,\dfrac{1}{B_D}$.
 
 ### Catalyst‑layer (fit $R_{\mathrm{CL},s}$; use $b$ from kinetics)
-$\eta_{\mathrm{RCL}}(B_D; R_{\mathrm{CL},s})=\dfrac{b}{\alpha}\,\log_{10}\!\left\{1+\left[\dfrac{j\ln 10}{2b}\,R_{\mathrm{CL},s}\!\left(\dfrac12+\dfrac{1}{\lambda B_D}\right)\right]^{\alpha}\right\}$.
+$$\eta_{\mathrm{RCL}}(B_D; R_{\mathrm{CL},s}) = \frac{b}{\alpha}\,\log_{10}（\{1 + (\frac{j \ln 10}{2b}\,R_{\mathrm{CL},s}( \frac{1}{2} + \frac{1}{\lambda B_D} ))^{\alpha}\}）$$
 
 ### Residual term (fit $\eta_{\mathrm{con}},\ k_\theta$; use $b$ from kinetics)
 To keep dimensions consistent with $B_D$ in $\mathrm{mm}^{-1}$, we use $j=4/100\ \mathrm{A\,mm^{-2}}$ (i.e., $4\ \mathrm{A\,cm^{-2}}=0.04\ \mathrm{A\,mm^{-2}}$), making $k_\theta$ naturally in $\mathrm{mm\,A^{-1}}$:  
-$\eta_{\mathrm{res}}(B_D;\eta_{\mathrm{con}},k_\theta)=\eta_{\mathrm{con}}+b\,\log_{10}\!\left(\dfrac{B_D}{B_D-j\,k_\theta}\right)$, with $B_D\,[\mathrm{mm}^{-1}]$, $j\,[\mathrm{A\,mm^{-2}}]$, $k_\theta\,[\mathrm{mm/A}]$.  
+$\eta_{\mathrm{res}}(B_D;\eta_{\mathrm{con}},k_\theta)=\eta_{\mathrm{con}}+b\,\log_{10}\left(\dfrac{B_D}{B_D-j\,k_\theta}\right)$, with $B_D\,[\mathrm{mm}^{-1}]$, $j\,[\mathrm{A\,mm^{-2}}]$, $k_\theta\,[\mathrm{mm/A}]$.  
 **Positivity constraint:** ensure $B_D-j\,k_\theta>0$ for all data using $0<k_\theta<(1-\varepsilon)\,\dfrac{\min_i B_{D,i}}{j}$ with $\varepsilon\approx0.05$.
 
 ## Metrics
@@ -82,7 +82,7 @@ python fit_res_nls.py
 ## Conventions and knobs
 
 - **Units:** $B_D$ in $\mathrm{mm}^{-1}$; $\lambda$ in $\mathrm{mm}$; thus $1/(\lambda B_D)$ is dimensionless.
-- **Shared $\lambda$:** default $\lambda=0.0105\ \mathrm{mm}$ (10.05 $\mu$m). Change at the top of each fit script.
-- **Kinetics bounds:** $0.10<b<0.15$, $5\times10^{-5}<j_0<5\times10^{-4}$ (A cm$^{-2}$).
-- **Residual positivity:** $0<k_\theta<(1-\varepsilon)\,\min_i B_{D,i}/j$ with $j=0.04\ \mathrm{A\,mm^{-2}}$, $\varepsilon\approx0.05$.
+- **Shared $\lambda$:** default $\lambda=0.0105\ \mathrm{mm}$ . Change at the top of each fit script.
+- **Kinetics bounds:** $0.10<b<0.15$, $5\times10^{-5}<j_0<5\times10^{-4}$ ($A\ cm^{-2}$).
+- **Residual positivity:** $0<k_\theta<(1-\varepsilon)\,\min_i B_{D,i}/j$ with $j=0.04\ \mathrm{A\ mm^{-2}}$, $\varepsilon\approx0.2$.
 - **Independence:** each script carries its own constants (`j`, `lambda_mm`, `alpha`, etc.) and a `use_relative_residuals` toggle.
