@@ -88,3 +88,8 @@ python fit_res_nls.py
 - **Kinetics bounds:** $0.10<b<0.15$, $5\times10^{-5}<j_0<5\times10^{-4}$ ($A\ cm^{-2}$).
 - **Residual positivity:** $0<k_\theta<(1-\varepsilon)\,\min_i B_{D,i}/j$ with $j=0.04\ \mathrm{A\ mm^{-2}}$, $\varepsilon\approx0.2$.
 - **Independence:** each script carries its own constants (`j`, `lambda_mm`, `alpha`, etc.) and a `use_relative_residuals` toggle.
+
+---
+### How to cite
+Release v1.1.0 is archived on Zenodo:
+[https://doi.org/10.5281/zenodo.17054694](https://zenodo.org/records/17159427)
