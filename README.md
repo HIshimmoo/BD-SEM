@@ -8,7 +8,7 @@ Small, single‑purpose Python scripts for component‑wise **semi‑empirical**
 
 ## One $\lambda$ benchmark (context)
 
-We adopt a single effective transport length $\lambda$ (default $0.0105\ \mathrm{mm}=10.05\ \mu\mathrm{m}$) derived from active‑fraction arguments: $f(B_D;\lambda)=1-e^{-\lambda B_D}$ with $B_D$ in $\mathrm{mm}^{-1}$ and $\lambda$ in $\mathrm{mm}$. For model closure we use the approximation $\dfrac{1}{f}\approx\dfrac{\lambda B_D+2}{2\lambda B_D}=\dfrac12+\dfrac{1}{\lambda B_D}$, corresponding to inward‑only activation.
+We adopt a single effective transport length $\lambda$ (default $0.0105\ \mathrm{mm}=10.05\ \mu\mathrm{m}$) derived from catalyst-layer utilization arguments: $U(B_D;\lambda)=1-e^{-\lambda B_D}$ with $B_D$ in $\mathrm{mm}^{-1}$ and $\lambda$ in $\mathrm{mm}$. For model closure we use the approximation $\dfrac{1}{U}\approx\dfrac{\lambda B_D+2}{2\lambda B_D}=\dfrac12+\dfrac{1}{\lambda B_D}$, corresponding to inward‑only activation.
 
 ## Component models (fixed $\lambda$)
 
